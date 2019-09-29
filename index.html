@@ -50,6 +50,9 @@
           e.style.border = `${size / 80}px solid black`;
         };
       }
+      window.onload = function() {
+        window.scrollTo(0, document.body.scrollHeight);
+      };
       window.onbeforeunload = function() {
         window.scrollTo(0, document.body.scrollHeight);
       };
