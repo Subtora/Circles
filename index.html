@@ -15,7 +15,7 @@
         text-align: center;
         height: 10000px;
       }
-      body::-webkit-scrollbar {
+      ::-webkit-scrollbar {
         width: 0;
       }
     </style>
@@ -33,12 +33,6 @@
           e.style.border = `${size / 80}px solid black`;
         };
       }
-      window.onload = function() {
-        if (!window.location.hash) {
-          window.location = window.location + "#load";
-          window.location.reload();
-        }
-      };
       window.onbeforeunload = function() {
         window.scrollTo(0, document.body.scrollHeight);
       };
