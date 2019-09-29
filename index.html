@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Scroll Circle</title>
+    <style media="screen">
+      .circle {
+        display: inline-block;
+        position: fixed;
+        border-radius: 100%;
+        transform: translate(-50%, -50%);
+        top: 50vh;
+      }
+      body {
+        text-align: center;
+        height: 10000px;
+      }
+      body::-webkit-scrollbar {
+        width: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="circle"></div>
+    <script type="text/javascript">
+      function resize(e) {
+        window.onscroll = function() {
+          var size =
+            Math.floor(document.body.scrollHeight / 5) -
+            Math.floor(window.scrollY / 5);
+          e.style.width = `${size}px`;
+          e.style.height = `${size}px`;
+          e.style.border = `${size / 80}px solid black`;
+        };
+      }
+
+      window.onbeforeunload = function() {
+        window.scrollTo(0, document.body.scrollHeight);
+      };
+
+      var cir = document.getElementsByClassName("circle")[0];
+      resize(cir);
+
+      cir.addEventListener("mouseover", resize(cir));
+    </script>
+  </body>
+</html>
